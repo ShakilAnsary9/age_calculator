@@ -13,8 +13,8 @@ function ageCalculate(){
     let currentMonth = today.getMonth()+1;
     let currentDay = today.getDate();
 
+// leapyear checking...
     leapChecker(currentYear);
-
     if(
         birthDetails.year > currentYear || (birthDetails.month > currentMonth && birthDetails.year == currentYear) || (birthDetails.date > currentDay && birthDetails.month == currentMonth && birthDetails.year == currentYear)
     ){
@@ -23,6 +23,7 @@ function ageCalculate(){
         return;
     }
 
+// Validate Input Date
     birthYear = currentYear - birthDetails.year;
 
     if(currentMonth >= birthDetails.month){
@@ -45,7 +46,7 @@ function ageCalculate(){
             birthYear--;
         }
     }
-
+// Display Age Result
     displayResult( birthDay, birthMonth, birthYear);
 }
 
@@ -55,6 +56,7 @@ function displayResult(bDay, bMonth, bYear){
     document.getElementById("days").textContent = bDay;
 }
 
+// leapyear checking...
 function leapChecker(year){
     if(year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)){
         months[1] = 29;
